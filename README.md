@@ -28,7 +28,7 @@ In general, assembly is written alike below:
 As mentioned above, assembly can be written in regular text files. Here some command that might come in handy:
 |     Command     | Description |
 |-----------------| ------------|
-|  `org ADDRESS`  | guides the compiler to place next value <br> (be it a raw value or a command) into cell <br> with address `ADDRESS`
+|  `org ADDRESS`  | guides the compiler to place next value <br> (be it a raw value or a command) into cell <br> with address `ADDRESS`. Commands and data following the command will be located one by one
 | `word 0x0000,0xffa4,0xfa` | Places specified value into memory as is. <br> `?` is equal to `0x0000` in this context |
 
 *Note:* you can use any case of letters you desire: `0xfA51`, `0xFF`, `0xac` are all valid.
@@ -41,6 +41,7 @@ VAR1: word 0x45a9
 add 0xf
 sub VAR1
 ```
+Here `0x45a9` will be located at `0x04f`, `add 0xf` at `0x050` and so on
 
 ## Load `asm` file into bcomp
 BCOMP has additional parameter to load file with code: `-Dcode=`*`file`* where `file` is any valid path to existing file: `foobar.asm`, `./keklol`, `/home/foo/kek` are all valid.
