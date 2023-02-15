@@ -59,7 +59,14 @@ ffae
 ``` 
 This will set `Input Register` to the value you wrote.
 
-You can also write assembly right in BCOMP
+Then, you can type:
+```
+a
+```
+and value of `Input Register` will be loaded into `IP` register (analogue to press of `Enter Address` button in `gui` mode).
+For more commands see `help`.
+
+You can also write assembly right in BCOMP:
 ```
 asm
 Введите текст программы. Для окончания введите END
@@ -72,6 +79,7 @@ end
 Launch BCOMP in `dual` mode and load your program.
 To see nice trace table in your terminal press `continue` button in GUI. You will see how neat lines appears in your terminal.
 
+P.S. Pull requests are welcome
 
 
 <!-- ## Addressing
