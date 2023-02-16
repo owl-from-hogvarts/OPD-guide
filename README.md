@@ -80,15 +80,21 @@ end
 Launch BCOMP in `dual` mode and load your program.
 To see nice trace table in your terminal press `continue` button in GUI. You will see how neat lines appears in your terminal.
 
+## Addressing
+
+When you see something like this `2`**`E`**`F5` the second letter (`E` here) is responsible for addressing mode. Look at the table below (`L` stand for `Label`)
+
+| Hex code | Name | Notation | Example | Description |
+|----------|-------|----------|---------|---|
+|  0x0-0x7 |Absolute| `add $L` <br> `add ADDR` | `add $VAR1` <br> `add 0xf` | Add number from memory cell with address `0xf` or from `$VAR1` label |
+|    0xE   | Direct relative | `add L` | `add VAR1` <br> `4EFE` | **Only labels are supported!** `IP + 1 + OFFSET`. Notice, that `IP` point to *next* command. So that is where `+ 1` comes from. Let's assume that `4EFE` (`add`) have address `0x010`. Therefore it points to address right before `4EFE` i.e. `0x009`. `4EFF` point to itself
+|    0x8   | Indirect relative | `add (L)` | `add (VAR1)` | Works like pointers in C/C++. It's like saying: *Hey, look in this box. Here you find paper which tells you where exactly the thing is.* `add` --(Direct relative)--> `VAR1` --(Absolute)--> `value` |
+|    0xA   | Indirect autoIncrement | `add (L)+` | `add (VAR1)` | Same like above but after absolute address has been loaded into register, value in memory cell is incremented. <br> ```AD = VAR1```<br>```*VAR1 += 1```|
+|    0xB   | Indirect autoDecrement | `add -(L)` | `add (VAR1)` |```*VAR1 -= 1``` <br> ```AD = VAR1``` |
+|    0xC   | Displacement SP | `add &N` <br> `add (sp + N)` | `add &0x4a` <br> `add (sp + 0x4a)` | TODO |
+|    0xF   | Direct Load | `add #N` | `add #0xff` | Load specified value into `AC`. Only one byte value can be set with direct load. The sign of value bit-extends i.e. `0xfe` becomes `0xfffe` and `0x7f` becomes `0x007f`
+
+*Note:* more information in [methodical](https://se.ifmo.ru/documents/10180/38002/Методические+указания+к+выполнению+лабораторных+работ+и+рубежного+контроля+БЭВМ+2019+bcomp-ng.pdf/d5a1be02-ad3f-4c43-8032-a2a04d6db12e) **page 22** and **page 32**
+
+
 P.S. Pull requests are welcome
-
-
-<!-- ## Addressing
-
-When you see something like this `2`**`E`**`F5` the second letter (`E` here) is responsible for addressing mode. Look at the table below
-
-| Hex code |  Name  | Example | Description |
-|----------|--------|---------|-------------|
-|   0x0    |Absolute| add 0xf | Add number from memory cell with address `0xf` |
-|   0x -->
- 
