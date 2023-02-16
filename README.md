@@ -11,7 +11,7 @@ BCOMP can be launched in next modes:
  - `nightmare` -- literally nightmare, don't launch or you will get mental trauma
  - `dual` -- launches bcomp in both `gui` and `cli` modes simultaneously (**recommended for tracing**)
 
-To launch bcomp in certain mode specify flag `-Dmode=`*`mode_name`* and replace `mode_name` with one of the above. Example:
+To launch bcomp in certain mode specify flag <code>-Dmode=<em>mode_name</em></code> and replace `mode_name` with one of the above. Example:
 ```
 java -jar -Dmode=dual bcomp-ng.jar
 ```
@@ -44,7 +44,7 @@ sub VAR1
 Here `0x45a9` will be located at `0x04f`, `add 0xf` at `0x050` and so on
 
 ## Load `asm` file into bcomp
-BCOMP has additional parameter to load file with code: `-Dcode=`*`file`* where `file` is any valid path to existing file: `foobar.asm`, `./keklol`, `/home/foo/kek` are all valid.
+BCOMP has additional parameter to load file with code: <code>-Dcode=<em>file</em></code> where `file` is any valid path to existing file: `foobar.asm`, `./keklol`, `/home/foo/kek` are all valid.
 
 *Note:* `.asm` extension is optional and is **not required**. File can have any name that your OS accepts.
 
@@ -82,7 +82,7 @@ To see nice trace table in your terminal press `continue` button in GUI. You wil
 
 ## Addressing
 
-When you see something like this `2`**`E`**`F5` the second letter (`E` here) is responsible for addressing mode. Look at the table below (`L` stand for `Label`)
+When you see something like this <code>2<strong>E</strong>F5</code> the second letter (`E` here) is responsible for addressing mode. Look at the table below (`L` stand for `Label`)
 
 | Hex code | Name | Notation | Example | Description |
 |----------|-------|----------|---------|---|
