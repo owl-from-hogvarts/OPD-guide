@@ -8,6 +8,7 @@
 BCOMP can be launched in next modes:
  - `gui` -- default mode (graphical interface)
  - `cli` -- command line interface
+ - `decoder` -- dump default micro-program (microcode) into terminal
  - `nightmare` -- literally nightmare, don't launch or you will get mental trauma
  - `dual` -- launches bcomp in both `gui` and `cli` modes simultaneously (**recommended for tracing**)
 
