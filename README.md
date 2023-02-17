@@ -3,6 +3,9 @@
 ### Disclaimer
 **THIS IT NOT COMPREHENSIVE DESCRIPTION! USE OFFICIAL [METHODICAL](https://se.ifmo.ru/documents/10180/38002/Методические+указания+к+выполнению+лабораторных+работ+и+рубежного+контроля+БЭВМ+2019+bcomp-ng.pdf/d5a1be02-ad3f-4c43-8032-a2a04d6db12e) FOR MORE INFO!**
 
+## Commands
+- **[LOOP](loop.md)**
+
 ## Modes
 
 BCOMP can be launched in next modes:
