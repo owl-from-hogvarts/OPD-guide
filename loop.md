@@ -1,4 +1,5 @@
 # LOOP
+Here you will find at least 3 ways to break `loop` command
 
 ## Direct load
 When used with direct load like:
@@ -20,10 +21,12 @@ After:
    0100
 ```
 
-*Note:* other addressing modes should word as expected
+*Note:* other addressing modes should work as expected
 
 ## Indirect autoIncrement
-This addressing mode ***will not break*** `loop` command. 
+
+### Normal
+This addressing mode will *not* break `loop` command if used as below:
 ```asm
 org 0x10
 word 0x5           ; <- operand
@@ -41,6 +44,24 @@ hlt
 1. `loop` decrements operand `0x5` (located by address stored in `DR` i.e. `0x10`). (`0x5` -> `0x4`)
 
 Infinite loop **DOES NOT** happen because `loop` performs on *operand* and **NOT** on the *address*. 
+
+### The WTF
+But wait! What... What if *address* and *operand* were the same essence.
+So... Here it is:
+```asm
+org 0x10
+POINTER: word 0x10 ; notice pointer points to itself
+loop (POINTER)+
+inc
+hlt
+```
+Please! Don't run it as this will break universe to irrecoverable state!
+
+So that's how we trigger infinite *loop*. 
+
+`0x10 -> 0x11 -> 0x10` and so on.
+
+ *Notice* that increment happens first, because *address increment* belongs to *address fetch* phase, and later decrement of `loop` is executed during *execute* phase/ 
 
 ## Overflow
 
