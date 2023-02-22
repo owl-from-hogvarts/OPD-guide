@@ -1,5 +1,5 @@
 # LOOP
-Here you will find at least 3 ways to break `loop` command
+Here you will find at least 3 ways how to break the `loop` command
 
 ## Direct load
 When used with direct load like:
