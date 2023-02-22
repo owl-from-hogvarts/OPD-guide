@@ -104,7 +104,7 @@ When you see something like this <code>2<strong>E</strong>F5</code> the second l
 
 Let's consider example:
 ```asm
-org 0x10 ; this command is optional because bcomp places program into this address
+org 0x10 ; this command is optional because bcomp places program into this address by default
 POINTER: word 0x15 ; absolute address of operand
 LD (POINTER)
 
