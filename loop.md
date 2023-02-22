@@ -7,7 +7,9 @@ When used with direct load like:
 loop #75
 ```
 
-Will override itself with direct load content and transfer control to next command (as if value in memory cell was positive).
+Will override itself with direct load content decremented and transfer control dependent on payload. 
+Therefore if positive number (e.g. `0x75`) was provided as direct load, *loop* will transfer control to next command as if value in memory cell was positive.
+And if value was negative (e.g. `0xF5`) loop will behave like with negative value in memory cell i.e. jump over next command.
 Before execution:
 ```
 -> 8F75
@@ -16,9 +18,22 @@ Before execution:
 ```
 After:
 ```
-   0075
+   0074
 -> 0700
    0100
+```
+
+Negative direct load:
+```
+-> 8FF5
+   0700
+   0100
+```
+After execution:
+```
+   FFF5 ; sign is bit extended, thus you see FFF5 and not 00F5
+   0700
+-> 0100
 ```
 
 *Note:* other addressing modes should work as expected
