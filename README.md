@@ -84,6 +84,15 @@ end
 Launch BCOMP in `dual` mode and load your program.
 To see nice trace table in your terminal press `continue` button in GUI. You will see how neat lines appears in your terminal.
 
+After program has been executed completely:
+1.  copy trace table from terminal. 
+1. Paste it into raw text file e.g. `text.txt`. 
+1. Replace all spaces (` `) with comma (`,`). 
+1. Rename file to something like `text.csv`. 
+1. Open the file with Libreoffice Calc or another sheet processing program
+1. Copy table from Calc to Libreoffice Writer or another program you are writing report in
+1. Format header of the table
+
 ## Addressing
 
 When you see something like this <code>2<strong>E</strong>F5</code> the second letter (`E` here) is responsible for addressing mode. Look at the table below (`L` stand for `Label`)
