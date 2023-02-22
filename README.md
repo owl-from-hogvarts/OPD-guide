@@ -81,11 +81,11 @@ end
 ```
 
 ## Trace
-Launch BCOMP in `dual` mode and load your program.
-To see nice trace table in your terminal press `continue` button in GUI. You will see how neat lines appears in your terminal.
+Launch BCOMP in `dual` mode and load your `.asm` file like described in [this](#load-asm-file-into-bcomp) section.
+To see nice trace table in your terminal press `continue` button in GUI. You will see how neat lines appear in your terminal.
 
 After program has been executed completely:
-1.  copy trace table from terminal. 
+1. Copy trace table from terminal. 
 1. Paste it into raw text file e.g. `text.txt`. 
 1. Replace all spaces (` `) with comma (`,`). 
 1. Rename file to something like `text.csv`. 
