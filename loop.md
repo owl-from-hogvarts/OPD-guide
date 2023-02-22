@@ -7,10 +7,11 @@ When used with direct load like:
 loop #75
 ```
 
-Will override itself with direct load content decremented and transfer control dependent on payload. 
-Therefore if positive number (e.g. `0x75`) was provided as direct load, *loop* will transfer control to next command as if value in memory cell was positive.
-And if value was negative (e.g. `0xF5`) loop will behave like with negative value in memory cell i.e. jump over next command.
-Before execution:
+Loop will override itself with direct load content decremented and transfer control dependent on payload. 
+Thus if positive number (e.g. `0x75`) is provided as direct load, *loop* will transfer control to next command as if value in memory cell was positive.
+And if payload is negative (e.g. `0xF5`) loop will behave like with negative value in memory cell i.e. jump over next command.
+
+(Positive payload) Before execution:
 ```
 -> 8F75
    0700
@@ -23,7 +24,7 @@ After:
    0100
 ```
 
-Negative direct load:
+(Negative payload) Before execution:
 ```
 -> 8FF5
    0700
@@ -31,7 +32,7 @@ Negative direct load:
 ```
 After execution:
 ```
-   FFF5 ; sign is bit extended, thus you see FFF5 and not 00F5
+   FFF5 ; sign is bit extended, therefore you see FFF5 instead of 00F5
    0700
 -> 0100
 ```
@@ -54,11 +55,11 @@ hlt
 
 1. Store `Data Register` content (i.e. *incremented address*) to `POINTER` (`0x10 -> 0x11`)
 
-1. Decrement *address* stored in `Data Register` (`DR` for short) back. Notice, that `DR` is not cleared after address was incremented, so it remains in register
+1. Decrement *address* stored in `Data Register` (`DR` for short) back (`0x11 -> 0x10`). Notice, that `DR` has not been cleared cleared after address increment, so address remains in register
 
-1. `loop` decrements operand `0x5` (located by address stored in `DR` i.e. `0x10`). (`0x5` -> `0x4`)
+1. `loop` decrements operand `0x5` (located at address stored in `DR` i.e. `0x10`). (`0x5` -> `0x4`)
 
-Infinite loop **DOES NOT** happen because `loop` performs on *operand* and **NOT** on the *address*. 
+Infinite loop **DOES NOT** happen because `loop` performs decrement on *operand* and **NOT** on the *address*. 
 
 ### The WTF
 But wait! What... What if *address* and *operand* were the same essence.
@@ -76,7 +77,7 @@ So that's how we trigger infinite *loop*.
 
 `0x10 -> 0x11 -> 0x10` and so on.
 
- *Notice* that increment happens first, because *address increment* belongs to *address fetch* phase, and later decrement of `loop` is executed during *execute* phase/ 
+ *Notice* that increment happens first, because *address increment* belongs to *address fetch* phase. In turn, *operand decrement* happens during *Execution* phase. *Address fetch* precedes *Execution*. 
 
 ## Overflow
 

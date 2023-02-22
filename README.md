@@ -88,7 +88,7 @@ After program has been executed completely:
 1. Copy trace table from terminal. 
 1. Paste it into raw text file e.g. `text.txt`. 
 1. Replace all spaces (` `) with comma (`,`). 
-1. Rename file to something like `text.csv`. 
+1. Rename file to something like <code>text<strong>.csv</strong></code>.
 1. Open the file with Libreoffice Calc or another sheet processing program
 1. Copy table from Calc to Libreoffice Writer or another program you are writing report in
 1. Format header of the table
@@ -100,7 +100,7 @@ When you see something like this <code>2<strong>E</strong>F5</code> the second l
 | Hex code | Name | Notation | Example | Description |
 |----------|-------|----------|---------|---|
 |  0x0-0x7 |Absolute| `add $L` <br> `add ADDR` | `add $VAR1` <br> `add 0xf` | Add number from memory cell with address `0xf` or from `$VAR1` label |
-|    0xE   | Direct relative | `add L` | `add VAR1` <br> `4EFE` | **Only labels are supported!** `IP + 1 + OFFSET`. Notice, that `IP` point to *next* command. So that is where `+ 1` comes from. Offset can be *positive* and *negative*. Something  like `0x80`, `0xfe` are **negative**. Let's assume that `4EFE` (`add`) have address `0x010`. Therefore it points to address right before `4EFE` (`0xFE` is *negative* = `-2`) i.e. `0x009`. `4EFF` point to itself
+|    0xE   | Direct relative | `add L` | `add VAR1` <br> `4EFE` | **Only labels are supported!** `IP + 1 + OFFSET`. Notice, that `IP` point to *next* command. So that is where `+ 1` comes from. Offset can be *positive* and *negative*. Something like `0x80`, `0xfe` is **negative**. Let's assume that `4EFE` (`add`) have address `0x010`. Therefore it points to address right before `4EFE` (`0xFE` is *negative* = `-2`) i.e. `0x009`. `4EFF` point to itself
 |    0x8   | Indirect relative | `add (L)` | `add (VAR1)` | Works like pointers in C/C++. It's like saying: *Hey, look in this box. Here you find paper which tells you where exactly the thing is.* `add` --(Direct relative)--> `VAR1` --(Absolute)--> `value` <br> **MORE DETAILS BELOW TABLE**|
 |    0xA   | Indirect autoIncrement | `add (L)+` | `add (VAR1)+` | Same like above but after absolute address has been loaded into register, address *itself* in memory cell is incremented. <br> ```AD = VAR1```<br>```VAR1 += 1``` <br> `VAR1` is a **pointer**. So **pointer** is modified. Yes, we are crazy here, we do pointer arithmetics |
 |    0xB   | Indirect autoDecrement | `add -(L)` | `add -(VAR1)` | ```VAR1 -= 1``` <br> ```AD = VAR1``` <br> Again, pointer is modified, **NOT** value it points to |
