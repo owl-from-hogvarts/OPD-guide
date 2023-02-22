@@ -109,15 +109,15 @@ POINTER: word 0x15 ; absolute address of operand
 LD (POINTER)
 
 org 0x15
-word 0x45a9
+word 0x45a9 ; actual operand
 ```
 Here, `LD (POINTER)` will result in next data in memory: `0xA8FE`.
 
 `A` means that the command is `LD`, `8` denotes that addressing mode is *indirect relative*
-and `FE` is offset. Since numbers are represented in two's complement form, `FE` means (-2).
+and `FE` is offset. Since offset are represented in two's complement form, `FE` means (-2).
 As you remember, `IP` is already incremented so at the time it points to `0x11 + 0x1 = 0x12`. 
-Therefore **LD** will interpret content at `0x12 - 0x2 = 0x10` address as *absolute address* 
-of where *operand* (the thing which actually will be loaded into *Accumulator register*) is stored.
+Therefore **LD** will interpret content at `0x12 - 0x2 = 0x10` address as *absolute address* (`0x15` is *absolute address*)
+of where *operand* (`0x45A9` in this example, the thing which actually will be loaded into *Accumulator register*) is stored.
 
 
 P.S. Pull requests are welcome
