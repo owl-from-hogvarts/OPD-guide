@@ -111,7 +111,7 @@ LD (POINTER)
 org 0x15
 word 0x45a9 ; actual operand
 ```
-Here, `LD (POINTER)` will result in next data in memory: `0xA8FE`.
+Here, `LD (POINTER)` LD will look like this in memory: `0xA8FE`.
 
 `A` means that the command is `LD`, `8` denotes that addressing mode is *indirect relative*
 and `FE` is offset. Since offset are represented in two's complement form, `FE` means (-2).
