@@ -138,8 +138,8 @@ Here, `LD (POINTER)` LD will look like this in memory: `0xA8FE`.
 `A` means that the command is `LD`, `8` denotes that addressing mode is *indirect relative*
 and `FE` is offset. Since offsets are represented in two's complement form, `FE` means (-2).
 As you remember, `IP` is already incremented so at this time it points to `0x11 + 0x1 = 0x12`. 
-Therefore **LD** will interpret content at address `0x12 - 0x2 = 0x10` as *absolute address* (`0x15` is *absolute address*)
-of where *operand* (`0x45A9` in this example, the value which actually will be loaded into *Accumulator register*) is stored.
+Therefore **LD** will look for content at address `0x12 - 0x2 = 0x10`. Content of that cell will be interpreted as *absolute address* `0x15`
+of where to search for *operand*. So the value at address `0x15` (which is `0x45A9` in the example) will be loaded into *Accumulator register*.
 
 
 P.S. Pull requests are welcome
