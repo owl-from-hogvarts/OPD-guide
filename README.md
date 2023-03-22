@@ -50,7 +50,7 @@ Here some *special* commands that might come in handy:
 
 These special commands are not represented in `bcomp` memory. They are intended to assist you write assembly code
 
-Here is simple example:
+Here is simple example (For more advanced one look [here](example.asm)):
 
 ```asm
 org 0x04f
@@ -140,6 +140,23 @@ and `FE` is offset. Since offsets are represented in two's complement form, `FE`
 As you remember, `IP` is already incremented so at this time it points to `0x11 + 0x1 = 0x12`. 
 Therefore **LD** will look for content at address `0x12 - 0x2 = 0x10`. Content of that cell will be interpreted as *absolute address* `0x15`
 of where to search for *operand*. So the value at address `0x15` (which is `0x45A9` in the example) will be loaded into *Accumulator register*.
+
+
+## Command execution stages
+
+*Note:* [0, 2] means from 0 to 2 inclusive on both ends
+
+|Stage|Amount of memory accesses|
+|-----|-------------------------|
+|instruction fetch| 1 |
+|address fetch | [0, 2]|
+|operand fetch | 1     |
+|execution     | [0, 1]|
+|interrupt     | TODO  |
+
+*Note:* operand fetch is skipped for commands, which have `1` in their **14** bit:
+
+<code>0<b><em>1</em></b>00 0000 0000 0000</code> here `14` bit is ***highlighted*** and set to `1`
 
 
 P.S. Pull requests are welcome
