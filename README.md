@@ -6,6 +6,9 @@
 ## Commands
 - **[LOOP](loop.md)**
 
+## Reports examples
+ You can found examples of reports which we at least partially accepted by teacher in [`reports`](/reports/) folders.
+
 ## Table of content
 
  - [Modes](#modes)
@@ -14,6 +17,7 @@
  - [CLI usage](#cli)
  - [Fast way to trace programs](#trace)
  - [Addressing modes](#addressing)
+ - [Command execution stages](#command-execution-stages)
 
 ## Modes
 
