@@ -42,7 +42,9 @@ In general, assembly is written alike below:
 ```
 *Note:* square brackets means that this part is optional. To see full syntax look at **page 51** in [methodical](https://se.ifmo.ru/documents/10180/38002/Методические+указания+к+выполнению+лабораторных+работ+и+рубежного+контроля+БЭВМ+2019+bcomp-ng.pdf/d5a1be02-ad3f-4c43-8032-a2a04d6db12e)
 
-Labels are useful to refer to some location in memory. Read more in [addressing](#addressing) section
+Labels are useful to refer to some location in memory. Read more in [addressing](#addressing) section.
+
+Numbers can be written as decimal (e.g. `15`) or hexadecimal (e.g. `0xF`).
 
 Here some *special* commands that might come in handy:
 |     Command     | Description |
@@ -54,15 +56,18 @@ Here some *special* commands that might come in handy:
 
 These special commands are not represented in `bcomp` memory. They are intended to assist you write assembly code
 
+There is special label `START`. It tells bcomp from where to start execution. Address, to which `START` refers, is placed into `IP`. This means, the program can be executed right off start of bcomp.
+
+
 Here is simple example (For more advanced one look [here](example.asm)):
 
 ```asm
 org 0x04f
 VAR1: word 0x45a9
-add 0xf
+START: add 0xf
 sub VAR1
 ```
-Here `0x45a9` will be placed in memory as is at address `0x04f`; `add 0xf` at `0x050` and so on.
+Here `0x45a9` will be placed in memory as is at address `0x04f`; `add 0xf` at `0x050` and so on. Also `0x050` (the address with special label `START`) is loaded into `IP`. Thus you don't have to manually setup this.
 
 ## Load `asm` file into bcomp
 BCOMP has additional parameter to load file with code: <code>-Dcode=<em>file</em></code> where `file` is any valid path to existing file: `foobar.asm`, `./keklol`, `/home/foo/kek` are all valid.
