@@ -1,4 +1,7 @@
 # LOOP
+
+Command LOOP has actual name: "декремент и пропуск"
+
 Here you will find at least 3 ways how to break the `loop` command
 
 ## Direct load
