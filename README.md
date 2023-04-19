@@ -129,7 +129,7 @@ When you see something like this <code>2<strong>E</strong>F5</code> the second l
 |    0xA   | Indirect autoIncrement | `add (L)+` | `add (VAR1)+` | Same like above but after absolute address has been loaded into register, address *itself* in memory cell is incremented. <br> ```AD = VAR1```<br>```VAR1 += 1``` <br> `VAR1` is a **pointer**. So **pointer** is modified. Yes, we are crazy here, we do pointer arithmetics |
 |    0xB   | Indirect autoDecrement | `add -(L)` | `add -(VAR1)` | ```VAR1 -= 1``` <br> ```AD = VAR1``` <br> Again, pointer is modified, **NOT** value it points to |
 |    0xC   | Displacement SP | `add &N` <br> `add (sp + N)` | `add &0x4a` <br> `add (sp + 0x4a)` | TODO |
-|    0xF   | Direct Load | `add #N` | `add #0xff` | Load specified value into `AC`. Only one byte value can be set with direct load. The sign of value bit-extends i.e. `0xfe` becomes `0xfffe` and `0x7f` becomes `0x007f`
+|    0xF   | Direct Load | `add #N` | `add #0xff` | Load specified value into `DR`. Then a command may decide what to do with operand, e.g. load it into `AC` or do something else. Only one byte value can be set with direct load. The sign of value bit-extends i.e. `0xfe` becomes `0xfffe` and `0x7f` becomes `0x007f`
 
 *Note:* more information in [methodical](https://se.ifmo.ru/documents/10180/38002/Методические+указания+к+выполнению+лабораторных+работ+и+рубежного+контроля+БЭВМ+2019+bcomp-ng.pdf/d5a1be02-ad3f-4c43-8032-a2a04d6db12e) **page 22** and **page 32**
 
