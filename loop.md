@@ -70,8 +70,8 @@ So... Here it is:
 ```asm
 org 0x10
 POINTER: word 0x10 ; notice pointer points to itself
-loop (POINTER)+
-inc
+LP: loop (POINTER)+
+jump LP
 hlt
 ```
 Please! Don't run it as this will break universe to irrecoverable state!
