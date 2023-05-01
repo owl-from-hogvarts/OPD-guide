@@ -13,14 +13,20 @@
  You can found examples of reports which we at least partially accepted by teacher in [`reports`](/reports/) folders.
 
 ## Table of content
-
- - [Modes](#modes)
- - [Writing assembly](#assembly)
- - [Loading assembly](#load-asm-file-into-bcomp)
- - [CLI usage](#cli)
- - [Fast way to trace programs](#trace)
- - [Addressing modes](#addressing)
- - [Command execution stages](#command-execution-stages)
+- [Guide for BCOMP](#guide-for-bcomp)
+    - [Disclaimer](#disclaimer)
+    - [This guide in russian: https://github.com/Zerumi/OPD-guide-RU-](#this-guide-in-russian-httpsgithubcomzerumiopd-guide-ru-)
+  - [Commands](#commands)
+  - [Reports examples](#reports-examples)
+  - [Table of content](#table-of-content)
+  - [Modes](#modes)
+  - [Assembly](#assembly)
+  - [Load `asm` file into bcomp](#load-asm-file-into-bcomp)
+  - [CLI](#cli)
+  - [Trace](#trace)
+  - [Addressing](#addressing)
+    - [Notes on *Indirect relative*](#notes-on-indirect-relative)
+  - [Command execution stages](#command-execution-stages)
 
 ## Modes
 
