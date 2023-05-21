@@ -5,6 +5,22 @@
 
 ### This guide in russian: https://github.com/Zerumi/OPD-guide-RU-
 
+### Your biggest mistake in life
+In BCOMP, plain numbers like `1`, `15` are treated as ***decimal*** not as ***hex***!
+Be careful and don't miss the `0x` prefix! Actual hex number would be: `0x15`
+Example: 
+```asm
+in 15   ; this is DECIMAL! Reads literally 
+        ; from fifteenth external register (actual address is 0xF)
+        ; that is from External Device 5 - Text Printer
+
+; vs
+in 0x15 ; reads from twenty first (21 in decimal) external register
+        ; that is from External Device 7 - 7 segment indicator
+        ; from status register
+
+```
+
 ## Commands
 - **[LOOP](loop.md)**
 - **[Micro-commands](microcode.md)**
@@ -16,6 +32,7 @@
 - [Guide for BCOMP](#guide-for-bcomp)
     - [Disclaimer](#disclaimer)
     - [This guide in russian: https://github.com/Zerumi/OPD-guide-RU-](#this-guide-in-russian-httpsgithubcomzerumiopd-guide-ru-)
+    - [Your biggest mistake in life](#your-biggest-mistake-in-life)
   - [Commands](#commands)
   - [Reports examples](#reports-examples)
   - [Table of content](#table-of-content)
