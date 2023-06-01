@@ -24,6 +24,7 @@ in 0x15 ; reads from twenty first (21 in decimal) external register
 ## Commands
 - **[LOOP](loop.md)**
 - **[Micro-commands](microcode.md)**
+- **[IO (Input Output)](io.md)**
 
 ## Reports examples
  You can found examples of reports which we at least partially accepted by teacher in [`reports`](/reports/) folders.
